@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_crawling_station_list" model="ir.ui.view">
+        <field name="name">crawling.station</field>
+        <field name="model">crawling.station</field>
+        <field name="arch" type="xml">
+            <tree string="Crawling Station">
+                <field name="name"/>
+                <field name="domain"/>
+                <field name="currency_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_crawling_station_form" model="ir.ui.view">
+        <field name="name">crawling.station</field>
+        <field name="model">crawling.station</field>
+        <field name="arch" type="xml">
+            <form string="Crawling Station">
+                <header/>
+                <sheet>
+                    <div class="oe_edit_only">
+                        <label for="name"/>
+                    </div>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <group>
+                        <group>
+                            <field name="domain"/>
+                        </group>
+                        <group>
+                            <field name="currency_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Store Paths">
+                            <field name="store_path_ids" context="{'default_is_store':True}"/>
+                        </page>
+                        <page string="Product Clusters">
+                            <group>
+                                <field name="product_cluster_path_ids" context="{'default_is_product_cluster':True}"/>
+                                <field name="product_path_ids" context="{'default_is_product':True}"/>
+                                <field name="price_path_ids" context="{'default_is_price':True}"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <footer/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_view_crawling_station" model="ir.actions.act_window">
+        <field name="name">Crawling Station</field>
+        <field name="res_model">crawling.station</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_crawling_station_list"/>
+    </record>
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+crawling_tag_user,"Crawling Tag user",model_crawling_tag,base.group_user,1,0,0,0
+crawling_tag_manager,"Crawling Tag user",model_crawling_tag,lunch.group_lunch_manager,1,1,1,1
+crawling_station_user,"Crawling Station user",model_crawling_station,base.group_user,1,0,0,0
+crawling_station_manager,"Crawling Station user",model_crawling_station,lunch.group_lunch_manager,1,1,1,1

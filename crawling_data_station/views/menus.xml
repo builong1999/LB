@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <menuitem action="action_view_crawling_station"
+        id="menu_lunch_crawling_station"
+        parent="lunch.menu_lunch"
+        sequence="52"/>
+</odoo>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_crawling_tag_list" model="ir.ui.view">
+        <field name="name">crawling.tag</field>
+        <field name="model">crawling.tag</field>
+        <field name="arch" type="xml">
+            <tree string="Crawling Tag" editable="top">
+                <field name="sequence" widget="handle"/>
+                <field name="tag"/>
+                <field name="class_attribute"/>
+                <field name="id_attribute"/>
+                <field name="specific_attribute"/>
+                <field name="is_store" readonly="1" force_save="1"/>
+                <field name="is_product_cluster" readonly="1" force_save="1"/>
+                <field name="is_product" readonly="1" force_save="1"/>
+                <field name="is_price" readonly="1" force_save="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_view_crawling_tag" model="ir.actions.act_window">
+        <field name="name">Crawling Tag</field>
+        <field name="res_model">crawling.tag</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_crawling_tag_list"/>
+    </record>
+</odoo>
