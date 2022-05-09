@@ -19,10 +19,17 @@ class CrawlingTag(models.Model):
     is_price = fields.Boolean(string='Is Price?')
     crawling_station_id = fields.Many2one('crawling.station', string='Crawling Station')
 
+    def _make_dict_from_record(self):
+        res = {
+            'tag': self.tag
+        }
+        if self.class_attribute:
+            res.update({'class': self.class_attribute})
+        if self.id_attribute:
+            res.update({'id': self.class_attribute})
+        if self.specific_attribute:
+            res.update({'attribute': self.class_attribute})
+        return res
+
     def mapped_path(self):
-        return self.sorted(lambda s: s.sequence).mapped(lambda r: {
-            'tag': r.tag,
-            'class': r.class_attribute,
-            'id': r.id_attribute,
-            'attribute': r.specific_attribute,
-        })
+        return self.sorted(lambda s: s.sequence).mapped(lambda r: r._make_dict_from_record())
