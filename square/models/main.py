@@ -8,5 +8,5 @@ class SquareLog(models.Model):
     _name = "square.log"
     _description = "Square Logs"
     
-    name = fields.Date(string='Name', default=fields.context_today)
+    name = fields.Date(string='Name')
     body = fields.Text(string='Body')
